@@ -1,10 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import BlurText from './components/BlurText'
+import CountUp from './components/CountUp'
+import Magnet from './components/Magnet'
+import Reveal from './components/Reveal'
+import ScrollProgress from './components/ScrollProgress'
+import SpotlightCard from './components/SpotlightCard'
 import './styles.css'
 
 function App() {
   return (
     <main>
+      <ScrollProgress />
       <section className="hero" id="home">
         <div className="hero-media" aria-hidden="true">
           <video autoPlay muted loop playsInline preload="metadata">
@@ -18,15 +25,25 @@ function App() {
             <a href="#work">项目</a>
             <a href="#strengths">能力</a>
           </div>
-          <a className="contact-link" href="#contact">联系我 <span>↗</span></a>
+          <Magnet padding={54} strength={5}>
+            <a className="contact-link" href="#contact">联系我 <span>↗</span></a>
+          </Magnet>
         </nav>
 
         <div className="hero-content shell">
           <div className="eyebrow"><span /> AI PRODUCT · TECH OPERATIONS · CLIENT SUCCESS</div>
-          <h1>让技术被理解，<br />让产品被<span>真正使用。</span></h1>
+          <h1 className="hero-title">
+            <BlurText text="让技术被理解，" />
+            <span className="hero-title-line">
+              <BlurText text="让产品被" delay={62} />
+              <BlurText text="真正使用。" delay={62} className="outline" />
+            </span>
+          </h1>
           <div className="hero-bottom">
             <p>我是张瑞，一名有技术背景的 AI 产品技术运营与客户经理。<br />连接产品、用户与商业结果，把复杂问题推进到真实落地。</p>
-            <a className="circle-cta" href="#work" aria-label="查看精选项目">↓</a>
+            <Magnet>
+              <a className="circle-cta" href="#work" aria-label="查看精选项目">↓</a>
+            </Magnet>
           </div>
         </div>
         <div className="hero-index">PORTFOLIO / 2026</div>
@@ -34,7 +51,7 @@ function App() {
 
       <section className="profile section shell" id="profile">
         <div className="section-mark">01 / PROFILE</div>
-        <div className="profile-grid">
+        <Reveal className="profile-grid">
           <div className="portrait">
             <img src="/portrait.webp" alt="张瑞个人照片" />
             <div className="portrait-caption">OPEN TO 2027 CAMPUS OPPORTUNITIES</div>
@@ -49,20 +66,20 @@ function App() {
               <div><span>联系</span><strong>2256178941@qq.com<br />186 0936 6869</strong></div>
             </div>
           </div>
-        </div>
+        </Reveal>
         <div className="metrics" aria-label="核心项目数据">
-          <div><strong>700万<sup>+</sup></strong><span>专项全网曝光</span></div>
-          <div><strong>9K<sup>+</sup></strong><span>产品下载与深度使用</span></div>
-          <div><strong>5万<sup>+</sup></strong><span>活动官网累计访问</span></div>
-          <div><strong>100万<sup>+</sup></strong><span>Agent 专家模式调用</span></div>
+          <div><strong><CountUp to={700} suffix="万" /><sup>+</sup></strong><span>专项全网曝光</span></div>
+          <div><strong><CountUp to={9} suffix="K" /><sup>+</sup></strong><span>产品下载与深度使用</span></div>
+          <div><strong><CountUp to={5} suffix="万" /><sup>+</sup></strong><span>活动官网累计访问</span></div>
+          <div><strong><CountUp to={100} suffix="万" /><sup>+</sup></strong><span>Agent 专家模式调用</span></div>
         </div>
       </section>
 
       <section className="work section" id="work">
-        <div className="shell section-head">
+        <Reveal className="shell section-head">
           <div className="section-mark">02 / SELECTED WORK</div>
           <h2>把业务问题，做成<br />可运行的产品。</h2>
-        </div>
+        </Reveal>
         <div className="project-list shell">
           <ProjectCard
             index="01"
@@ -93,10 +110,10 @@ function App() {
 
       <section className="strengths section shell" id="strengths">
         <div className="section-mark">03 / CAPABILITIES</div>
-        <div className="section-head compact">
+        <Reveal className="section-head compact">
           <h2>复合能力，<br />端到端推进。</h2>
           <p>我关注的不是单点交付，而是从发现问题到形成增长、产品与客户价值的完整闭环。</p>
-        </div>
+        </Reveal>
         <div className="strength-grid">
           <Strength number="01" title="技术产品化" copy="理解 AI、云计算与 Web 技术，能完成需求分析、产品设计，并快速做出可验证的原型或线上系统。" />
           <Strength number="02" title="增长与内容运营" copy="将复杂技术转译为产品教程、客户案例和活动体验，用内容、渠道与数据复盘推动认知和转化。" />
@@ -123,25 +140,29 @@ function App() {
 
 function ProjectCard({ index, title, meta, copy, href, className }) {
   return (
-    <article className={`project-card ${className}`}>
-      <div className="project-visual" aria-hidden="true"><span>{index}</span><i /></div>
-      <div className="project-content">
-        <div className="project-meta">{meta}</div>
-        <h3>{title}</h3>
-        <p>{copy}</p>
-        <a href={href} target="_blank" rel="noreferrer">查看项目 <span>↗</span></a>
-      </div>
-    </article>
+    <Reveal className="project-reveal" amount={0.12}>
+      <article className={`project-card ${className}`}>
+        <div className="project-visual" aria-hidden="true"><span>{index}</span><i /><b>CASE / {index}</b></div>
+        <div className="project-content">
+          <div className="project-meta">{meta}</div>
+          <h3>{title}</h3>
+          <p>{copy}</p>
+          <Magnet padding={42} strength={6}>
+            <a href={href} target="_blank" rel="noreferrer">查看项目 <span>↗</span></a>
+          </Magnet>
+        </div>
+      </article>
+    </Reveal>
   )
 }
 
 function Strength({ number, title, copy }) {
   return (
-    <article className="strength-card">
+    <SpotlightCard className="strength-card">
       <span>{number}</span>
       <h3>{title}</h3>
       <p>{copy}</p>
-    </article>
+    </SpotlightCard>
   )
 }
 
