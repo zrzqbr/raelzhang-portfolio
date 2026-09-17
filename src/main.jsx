@@ -15,7 +15,7 @@ const projects = [
     title: '腾讯 OPC 社区官方平台',
     meta: '产品负责人 / 核心开发者 · 2026',
     copy: '从业务需求、角色与激励机制出发，搭建园区榜单、OPC 价值榜、专家咨询与积分体系，让社区服务从人工协同走向产品化运营。',
-    image: '/project-opc-live.png',
+    image: '/project-opc-live.webp',
     tag: 'COMMUNITY / PRODUCT',
     href: 'https://cloud.tencent.com/opc',
     domain: 'cloud.tencent.com/opc',
@@ -26,7 +26,7 @@ const projects = [
     title: '2026腾讯云粤港澳大湾区架构师峰会官网',
     meta: '产品负责人 / 独立开发者 · 2026',
     copy: '将报名入口升级为品牌官网与数字化会务系统，打通报名、通知、签到与数据复盘，累计承接 1,700+ 人报名。',
-    image: '/project-summit-live.png',
+    image: '/project-summit-live.webp',
     tag: 'EVENT / GROWTH',
     href: 'https://ruitcarch.cloud/',
     domain: 'ruitcarch.cloud',
@@ -37,7 +37,7 @@ const projects = [
     title: 'AI 战略指标管理系统',
     meta: '产品负责人 / 主导开发者 · 2026—至今',
     copy: '深入两校区 8 个学院完成需求调研，将 AI 填报、自动预警与 RAG 问数融入管理流程，稳定服务 1,280 名教师。',
-    image: '/project-ai-live.png',
+    image: '/project-ai-live.webp',
     tag: 'AI / RAG / WORKFLOW',
     href: 'https://sism.blackevil.cn/login',
     domain: 'sism.blackevil.cn',
@@ -48,7 +48,7 @@ const projects = [
     title: '腾讯云架构师技术同盟圈层运营系统',
     meta: '产品设计 / 圈层运营 · 2026—至今',
     copy: '围绕约 2,000 名企业架构师建立统一成员档案与分层运营体系，连接内容策略、活动参与、贡献积分与后台管控。在成员授权及合规边界内，对社群业务讨论进行关键词、主题与活跃度分析，识别技术关注、合作需求和运营信号，辅助制定文章选题、专家共创与圈层触达策略。',
-    image: '/project-architect-ops-redacted.png',
+    image: '/project-architect-ops-redacted.webp',
     tag: 'COMMUNITY OPS / CRM',
     href: 'https://txalliance.cn/login?next=%2Fadmin%2Fai',
     domain: 'txalliance.cn · AI 数据助手',
@@ -62,7 +62,7 @@ const engineeringProjects = [
     label: 'REAL BUSINESS SYSTEM',
     title: '峰会官网及运营后台',
     copy: '覆盖品牌官网、活动报名、短信验证、渠道追踪、数据统计、导出与运营后台，形成从需求拆解到线上交付的完整业务系统。后台涉及真实报名数据，仅展示能力，不公开访问凭证。',
-    image: '/project-summit-live.png',
+    image: '/project-summit-live.webp',
     href: 'https://ruitcarch.cloud/',
     cta: '访问项目官网',
     proof: ['实际业务运行', '全栈交付', '数据化运营'],
@@ -72,7 +72,7 @@ const engineeringProjects = [
     label: 'AI AGENT TOOLING',
     title: 'SummitFlow MCP',
     copy: '把报名统计、论坛与渠道分析、网站健康检查、代码审查、质量检查、Git 提交及受控发布，封装成 AI Agent 可直接调用的工具，并加入权限控制与操作审计。',
-    image: '/project-summitflow.png',
+    image: '/project-summitflow.webp',
     href: 'https://github.com/zrzqbr/summitflow-mcp-demo',
     cta: '查看 GitHub 项目',
     proof: ['MCP Server', '权限控制', '操作审计'],
@@ -82,7 +82,7 @@ const engineeringProjects = [
     label: 'CONTENT DELIVERY',
     title: '长图报告生成 Skill',
     copy: '将项目汇报、活动复盘和数据报告的长图生产流程沉淀为可复用 AI Skill，并通过行宽校验、像素越界扫描、异常输入测试与视觉衔接检测完成交付前自检。',
-    image: '/project-longform.png',
+    image: '/project-longform.webp',
     href: 'https://github.com/zrzqbr/longform-report-skill',
     cta: '查看 GitHub 项目',
     proof: ['参数化生成', '12 组异常测试', '四层交付自检'],
@@ -146,15 +146,15 @@ const heroHighlights = [
 ]
 
 const heroPreview = [
-  ['/gallery/instructor-featured/01.jpg', '对外技术分享'],
-  ['/gallery/instructor/01.webp', '对外技术分享'],
-  ['/gallery/instructor/02.webp', '对外技术分享'],
-  ['/gallery/summit-salon/01.webp', '企业决策圈层运营'],
-  ['/gallery/video/poster-01.jpg', '企业决策圈层运营'],
-  ['/gallery/honors/03.jpg', '个人荣誉'],
-  ['/gallery/honors/02.jpg', '个人荣誉'],
-  ['/gallery/ai-practice/01.jpg', 'AI实践项目设计'],
-  ['/gallery/ai-skills/01.jpg', 'AI实践项目设计'],
+  ['/gallery-thumbs/instructor-featured/01.jpg', '对外技术分享'],
+  ['/gallery-thumbs/instructor/01.webp', '对外技术分享'],
+  ['/gallery-thumbs/instructor/02.webp', '对外技术分享'],
+  ['/gallery-thumbs/summit-salon/01.webp', '企业决策圈层运营'],
+  ['/gallery-thumbs/video/poster-01.jpg', '企业决策圈层运营'],
+  ['/gallery-thumbs/honors/03.jpg', '个人荣誉'],
+  ['/gallery-thumbs/honors/02.jpg', '个人荣誉'],
+  ['/gallery-thumbs/ai-practice/01.jpg', 'AI实践项目设计'],
+  ['/gallery-thumbs/ai-skills/01.jpg', 'AI实践项目设计'],
 ]
 
 const internshipStories = [
@@ -319,14 +319,14 @@ function PreviewRail({ items }) {
       if (frame) window.cancelAnimationFrame(frame)
     }
   }, [])
-  const sequence = <div className="hero-preview-sequence">{items.map(([src, label], index) => <a className="hero-preview-card cursor-target" href="#field" key={`${src}-${index}`}>
-    <img src={src} alt={label} loading="eager" draggable="false" />
+  const renderSequence = (copy, prioritize = false) => <div className="hero-preview-sequence">{items.map(([src, label], index) => <a className="hero-preview-card cursor-target" href="#field" key={`${copy}-${src}-${index}`}>
+    <img src={src} alt={label} loading={prioritize && index < 2 ? 'eager' : 'lazy'} fetchPriority={prioritize && index < 2 ? 'high' : 'low'} decoding="async" draggable="false" />
     <span>{label}</span>
   </a>)}</div>
   return <>
     <div className="hero-preview-head"><span>项目现场速览</span><div><small>拖动浏览 · 点击查看完整内容</small><button type="button" onClick={() => moveRail(-1)} aria-label="向左浏览"><ArrowLeft size={17} /></button><button type="button" onClick={() => moveRail(1)} aria-label="向右浏览"><ArrowRight size={17} /></button></div></div>
     <div ref={railRef} className="hero-preview-rail" onMouseEnter={() => { hoverRef.current = true; pausedRef.current = true }} onMouseLeave={() => { hoverRef.current = false; if (!dragRef.current.active) pausedRef.current = false }} onClickCapture={event => { if (dragRef.current.moved) { event.preventDefault(); dragRef.current.moved = false } }}>
-      <div className="hero-preview-track">{sequence}{sequence}</div>
+      <div className="hero-preview-track">{renderSequence('primary', true)}{renderSequence('duplicate')}</div>
     </div>
   </>
 }
@@ -335,7 +335,7 @@ function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-visual" aria-hidden="true">
-        <img src="/hero-horizon.png" alt="" />
+        <img src="/hero-horizon.webp" alt="" loading="eager" fetchPriority="high" decoding="async" />
         <LightRays raysOrigin="top-right" raysColor="#6da9ff" raysSpeed={0.28} lightSpread={0.62} rayLength={1.35} fadeDistance={1.05} saturation={0.72} followMouse mouseInfluence={0.035} noiseAmount={0.02} distortion={0.015} className="hero-rays" />
       </div>
       <Header />
@@ -390,7 +390,7 @@ function ProjectCard({ project, featured = false }) {
       </div>
       <a className="project-visual cursor-target" href={project.href} target="_blank" rel="noreferrer" aria-label={`查看${project.title}`}>
         <GlareHover width="100%" height="100%" background="#090c0f" borderRadius="0" borderColor="rgba(255,255,255,.08)" glareColor="#8bbcff" glareOpacity={0.2} glareAngle={-35} glareSize={220} transitionDuration={900}>
-          <img src={project.image} alt={`${project.title}项目视觉`} />
+          <img src={project.image} alt={`${project.title}项目视觉`} loading="lazy" fetchPriority="low" decoding="async" />
           <span className="project-view">VIEW / {project.index}</span>
         </GlareHover>
       </a>
@@ -413,7 +413,7 @@ function StoryCard({ story }) {
           <ol>{story.points.map(point => <li key={point}>{point}</li>)}</ol>
           <div className="story-metrics">{story.metrics.map(([value, label]) => <div key={label}><b>{value}</b><span>{label}</span></div>)}</div>
         </div>
-        <figure className={`story-visual ${story.imageFormat}`}><img src={story.image} alt={story.imageAlt} loading="lazy" /><figcaption>{story.product}<span>PROJECT EVIDENCE / {story.index}</span></figcaption></figure>
+        <figure className={`story-visual ${story.imageFormat}`}><img src={story.image} alt={story.imageAlt} loading="lazy" fetchPriority="low" decoding="async" /><figcaption>{story.product}<span>PROJECT EVIDENCE / {story.index}</span></figcaption></figure>
       </FadeContent>
 }
 
@@ -448,7 +448,7 @@ function Engineering() {
     <div className="engineering-grid">
       {engineeringProjects.map(project => <FadeContent className="engineering-card" key={project.step} blur duration={0.75} threshold={0.12}>
         <a className="engineering-cover cursor-target" href={project.href} target="_blank" rel="noreferrer" aria-label={`查看${project.title}`}>
-          <img src={project.image} alt={`${project.title}代表页面`} loading="lazy" />
+          <img src={project.image} alt={`${project.title}代表页面`} loading="lazy" fetchPriority="low" decoding="async" />
           <span>{project.step}</span>
         </a>
         <div className="engineering-body">

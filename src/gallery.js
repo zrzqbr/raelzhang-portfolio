@@ -39,7 +39,10 @@ export function itemsFor(module, subgroupIndex = 0) {
     const n = String(source.order?.[i] ?? i + 1).padStart(2, '0')
     return {
       src: `/gallery/${source.key}/${n}.${source.type === 'video' ? 'mp4' : (source.ext || 'webp')}`,
-      poster: source.type === 'video' ? `/gallery/${source.key}/poster-${n}.jpg` : undefined,
+      thumb: source.type === 'video'
+        ? `/gallery-thumbs/${source.key}/poster-${n}.jpg`
+        : `/gallery-thumbs/${source.key}/${n}.${source.ext || 'webp'}`,
+      poster: source.type === 'video' ? `/gallery-thumbs/${source.key}/poster-${n}.jpg` : undefined,
       kind: source.type, title: collection.title,
     }
   })).map((item, i) => ({ ...item, number: i + 1 }))

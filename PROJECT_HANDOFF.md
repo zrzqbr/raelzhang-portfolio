@@ -85,7 +85,7 @@ src/components/FadeContent.jsx       内容进入视口时的淡入与模糊过�
 src/components/GlareHover.jsx        项目图片悬停扫光
 src/components/GlareHover.css        项目图片扫光样式
 src/components/CountUp.jsx           数字增长动画
-public/hero-horizon.png              Hero 地平线主视觉
+public/hero-horizon.webp             Hero 地平线主视觉（WebP 优化版）
 public/project-summit.webp           粤港澳大湾区架构师峰会项目图
 public/project-opc.webp              腾讯 OPC 项目图
 public/project-ai.webp               AI 战略指标管理系统项目图

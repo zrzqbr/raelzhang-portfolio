@@ -21,7 +21,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 a:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
 ::selection { color: white; background: var(--red); }
 .shell { width: var(--shell); margin-inline: auto; }
-.section { padding: 96px 0; }
+.section {
+  padding: 96px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1100px;
+}
 
 .site-header { position: absolute; z-index: 20; top: 0; left: 50%; transform: translateX(-50%); height: 76px; display: grid; grid-template-columns: 1fr auto; align-items: center; border-bottom: 1px solid var(--line); }
 .brand { display: flex; align-items: center; gap: 18px; width: max-content; }

@@ -39,7 +39,7 @@ export default function FieldGallery() {
       enableTilt enableMagnetism clickEffect spotlightRadius={300} particleCount={12} glowColor="132, 0, 255"
       renderCard={(item, index) => <button type="button" className="field-photo"
         aria-label={`查看${item.title}第 ${item.number} ${item.kind === 'video' ? '段视频' : '张图片'}`} onClick={() => setSelected(index)}>
-        <img src={item.poster || item.src} alt={`${item.title} · ${item.number}`} loading="lazy" />
+        <img src={item.thumb} alt={`${item.title} · ${item.number}`} loading="lazy" fetchPriority="low" decoding="async" />
         <span className="field-photo-caption"><span>{item.kind === 'video' ? '▷ 播放短片' : '↗ 查看原图'}</span><span>{pad(item.number)}</span></span>
       </button>} />
     {selected !== null && <dialog ref={dialog} className="field-dialog" onCancel={() => setSelected(null)}
@@ -47,7 +47,7 @@ export default function FieldGallery() {
       <button type="button" className="field-close" autoFocus onClick={() => setSelected(null)} aria-label="关闭预览">关闭 ×</button>
       {items[selected].kind === 'video'
         ? <video key={items[selected].src} src={items[selected].src} poster={items[selected].poster} controls playsInline preload="metadata" />
-        : <img src={items[selected].src} alt={`${items[selected].title} · ${selected + 1}`} />}
+        : <img src={items[selected].src} alt={`${items[selected].title} · ${selected + 1}`} decoding="async" />}
       <p>{items[selected].title} / {pad(selected + 1)}</p>
     </dialog>}
   </div>
