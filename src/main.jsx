@@ -1,12 +1,20 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { ArrowLeft, ArrowRight, ArrowUpRight, ChatCircleDots, EnvelopeSimple, GithubLogo, Phone } from '@phosphor-icons/react'
 import FadeContent from './components/FadeContent'
 import FieldGallery from './components/FieldGallery'
 import GlareHover from './components/GlareHover'
 import LightRays from './components/LightRays'
+import MediaLightbox from './components/MediaLightbox'
 import TargetCursor from './components/TargetCursor'
 import './styles.css'
+
+const fullFromThumb = src => src.replace('/gallery-thumbs/', '/gallery/')
+const shots = (folder, names, alt) => names.map(name => ({
+  src: `/gallery/${folder}/${name}`,
+  thumb: `/gallery-thumbs/${folder}/${name}`,
+  alt,
+}))
 
 const projects = [
   {
@@ -166,9 +174,7 @@ const internshipStories = [
     summary: '以腾讯龙虾区域增长专项为获客入口，负责城市项目交付、客户线索沉淀及企业采购转化。',
     points: ['策划并交付10场WorkBuddy产品体验活动，覆盖全国10城、1.1万+用户，推动9K+用户下载或深度体验', '在杭州等城市独立担任项目PM，协同腾讯云合作伙伴完成客户触达、产品演示和项目交付，沉淀500+政企采购线索，潜在采购意向规模达5亿元', '协同直销、KA及渠道团队推进需求确认、产品试用和商务跟进，支撑单笔50万元企业订单交付，并推动全国首个WorkBuddy OPC社区成立'],
     metrics: [['9K+', '下载或深度体验'], ['500+', '政企采购线索'], ['50万元', '企业订单']],
-    image: '/gallery/tencent-growth/09.webp',
-    imageAlt: '腾讯龙虾区域增长专项活动现场',
-    imageFormat: 'landscape',
+    images: shots('tencent-growth', ['09.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp'], '腾讯龙虾区域增长专项活动现场'),
   },
   {
     index: '02',
@@ -179,9 +185,10 @@ const internshipStories = [
     summary: '围绕客户从产品认知、场景验证到采购决策的关键节点，通过技术培训、行业分享和Agent场景建设推动产品落地。',
     points: ['担任华东师范研究院OPC训练营WorkBuddy技术讲师，通过产品讲解、场景配置和实操演示，推动培训需求转化为10万元企业采购订单', '受邀参加GOPS全球运维大会等行业活动，围绕QClaw、WorkBuddy及Agent应用场景开展技术分享，带动200+企业用户下载试用', '针对内容创作、视频剪辑和资料管理等需求，上线6项Agent专家模式，累计调用100万+次；结合用户反馈推动WorkBuddy“资料库”等功能迭代'],
     metrics: [['10万元', '培训转化采购'], ['200+', '下载试用'], ['100万+', 'Agent累计调用']],
-    image: '/gallery/instructor/04.webp',
-    imageAlt: 'GOPS大会QClaw与OpenTenBase技术分享',
-    imageFormat: 'portrait',
+    images: [
+      ...shots('instructor', ['04.webp', '01.webp'], '技术分享与客户赋能现场'),
+      ...shots('instructor-featured', ['01.jpg'], '对外技术分享海报'),
+    ],
   },
   {
     index: '03',
@@ -192,9 +199,7 @@ const internshipStories = [
     summary: '围绕产品功能、应用场景和客户案例，建设公众号、腾讯频道及官方直播协同的内容增长体系。',
     points: ['负责腾讯云AI社区公众号选题策划和内容运营，围绕产品功能、实操教程及客户案例产出30+篇内容，两个月内推动公众号关注量由5千增长至1.4万', '从0搭建WorkBuddy腾讯频道，持续沉淀产品教程、功能解读和场景案例，推动频道成员增长至3千+，形成可持续触达用户的官方内容阵地', '兼任WorkBuddy官方技术主播，完成5场产品直播，通过功能演示、场景拆解和实时答疑帮助用户理解产品价值，场均观看5.6万+，累计新增粉丝2万+'],
     metrics: [['5.6万+', '直播场均观看'], ['2万+', '直播累计增粉'], ['30+篇', 'AI产品文章']],
-    image: '/gallery/tencent-growth/01.webp',
-    imageAlt: '腾讯云AI公开课媒体传播与内容矩阵',
-    imageFormat: 'editorial',
+    images: shots('tencent-growth', ['01.webp', '07.webp', '08.webp', '10.webp', '11.webp'], '腾讯云AI内容传播与活动现场'),
   },
   {
     index: '04',
@@ -205,9 +210,10 @@ const internshipStories = [
     summary: '面向企业架构师和技术决策者，建立从技术活动、私域连接到成员沉淀和客户经营的圈层运营链路。',
     points: ['策划并落地18场技术沙龙、峰会及行业交流活动，通过线上私域连接深圳、成都、长沙等地区1000+名企业架构师和技术决策者，推动100+人进入核心技术圈层', '协同FDE、产品、研发及行业专家策划10场技术议题，将产品能力、行业趋势和企业实践转化为面向技术决策者的专业内容，持续强化用户关系与品牌影响力', '搭建峰会报名门户与专家运营后台，打通渠道归因、成员建档、签到核销和复盘分析，形成企业技术活动全流程数字化运营能力；累计沉淀1700+用户报名及参会数据，报名规模较过往同类活动提升35%，为销售侧客户分层和持续经营提供数据支撑'],
     metrics: [['18场', '线下技术活动'], ['1,000+', '技术决策者'], ['1,700+', '活动报名']],
-    image: '/gallery/video/poster-01.jpg',
-    imageAlt: '腾讯云架构师技术圈层线下沙龙现场',
-    imageFormat: 'screen',
+    images: [
+      ...shots('summit-salon', ['01.webp', '02.webp'], '腾讯云架构师技术圈层活动现场'),
+      ...shots('video', ['poster-01.jpg', 'poster-02.jpg', 'poster-03.jpg', 'poster-04.jpg'], '腾讯云架构师技术圈层活动现场'),
+    ],
   },
   {
     index: '01',
@@ -218,9 +224,7 @@ const internshipStories = [
     summary: '针对数据库产品理解门槛高、部署资料分散的问题，建设开发者内容和自助检索体系。',
     points: ['策划版本解读、部署教程、客户案例和兼容适配内容，搭建技术专区及RAG知识库，为开发者和销售、售前提供可复用资料', '联合高校教师共建数据库教材，拓展校园开发者触达渠道；三个月内推动GitHub Star增长450+、教程阅读量达到10万+', '从社区及内容反馈中沉淀20项产品建议，推动优化30+份技术文档，为产品迭代和客户沟通提供支持'],
     metrics: [['+450', '3个月GitHub Star'], ['10万+', '教程阅读量'], ['30+份', '技术文档优化']],
-    image: '/gallery/instructor/02.webp',
-    imageAlt: 'OpenTenBase开发者活动现场',
-    imageFormat: 'landscape',
+    images: shots('instructor', ['02.webp', '07.webp', '08.webp'], 'OpenTenBase开发者活动现场'),
   },
   {
     index: '02',
@@ -231,9 +235,7 @@ const internshipStories = [
     summary: '通过技术活动获取企业线索，并结合客户业务场景协同研发推进产品验证和部署。',
     points: ['依托开放原子大会、城市行及年度峰会等10+场活动，触达1000+名开发者和企业用户，完成线索收集、需求识别及分层跟进', '协同研发完成源码编译、多节点集群部署、兼容适配和性能压测，将客户需求转化为可验证的PoC方案', '对接四川银行国产数据库替代需求，参与技术验证、适配评估和方案沟通，推动产品由试用验证进入项目落地阶段'],
     metrics: [['10+场', '技术活动'], ['1,000+', '用户触达'], ['企业级', 'PoC验证']],
-    image: '/gallery/instructor/03.webp',
-    imageAlt: 'OpenTenBase客户技术验证与项目交流',
-    imageFormat: 'landscape',
+    images: shots('instructor', ['03.webp', '05.webp', '06.webp'], 'OpenTenBase客户技术验证与项目交流'),
   },
 ]
 
@@ -256,6 +258,7 @@ function PreviewRail({ items }) {
   const pausedRef = useRef(false)
   const hoverRef = useRef(false)
   const dragRef = useRef({ active: false, startX: 0, startScroll: 0, moved: false })
+  const [preview, setPreview] = useState(null)
 
   const moveRail = direction => {
     const rail = railRef.current
@@ -318,15 +321,21 @@ function PreviewRail({ items }) {
       if (frame) window.cancelAnimationFrame(frame)
     }
   }, [])
-  const renderSequence = (copy, prioritize = false) => <div className="hero-preview-sequence">{items.map(([src, label], index) => <a className="hero-preview-card cursor-target" href="#field" key={`${copy}-${src}-${index}`}>
+  const openPreview = (src, label) => {
+    if (dragRef.current.moved) return
+    pausedRef.current = true
+    setPreview({ src: fullFromThumb(src), label, alt: label })
+  }
+  const renderSequence = (copy, prioritize = false) => <div className="hero-preview-sequence">{items.map(([src, label], index) => <button type="button" className="hero-preview-card cursor-target" key={`${copy}-${src}-${index}`} onClick={() => openPreview(src, label)}>
     <img src={src} alt={label} loading={prioritize && index < 2 ? 'eager' : 'lazy'} fetchPriority={prioritize && index < 2 ? 'high' : 'low'} decoding="async" draggable="false" />
     <span>{label}</span>
-  </a>)}</div>
+  </button>)}</div>
   return <>
-    <div className="hero-preview-head"><span>项目现场速览</span><div><small>拖动浏览 · 点击查看完整内容</small><button type="button" onClick={() => moveRail(-1)} aria-label="向左浏览"><ArrowLeft size={17} /></button><button type="button" onClick={() => moveRail(1)} aria-label="向右浏览"><ArrowRight size={17} /></button></div></div>
-    <div ref={railRef} className="hero-preview-rail" onMouseEnter={() => { hoverRef.current = true; pausedRef.current = true }} onMouseLeave={() => { hoverRef.current = false; if (!dragRef.current.active) pausedRef.current = false }} onClickCapture={event => { if (dragRef.current.moved) { event.preventDefault(); dragRef.current.moved = false } }}>
+    <div className="hero-preview-head"><span>项目现场速览</span><div><small>拖动浏览 · 点击放大</small><button type="button" onClick={() => moveRail(-1)} aria-label="向左浏览"><ArrowLeft size={17} /></button><button type="button" onClick={() => moveRail(1)} aria-label="向右浏览"><ArrowRight size={17} /></button></div></div>
+    <div ref={railRef} className="hero-preview-rail" onMouseEnter={() => { hoverRef.current = true; pausedRef.current = true }} onMouseLeave={() => { hoverRef.current = false; if (!dragRef.current.active) pausedRef.current = false }} onClickCapture={event => { if (dragRef.current.moved) { event.preventDefault(); event.stopPropagation(); dragRef.current.moved = false } }}>
       <div className="hero-preview-track">{renderSequence('primary', true)}{renderSequence('duplicate')}</div>
     </div>
+    <MediaLightbox item={preview} onClose={() => { setPreview(null); pausedRef.current = hoverRef.current }} />
   </>
 }
 
@@ -402,6 +411,40 @@ function Work() {
   return <section className="work section" id="work"><div className="shell"><SectionHeading index="02" title="SELECTED WORK" subtitle="精选项目" /><div className="project-list">{ordered.map((project, index) => <ProjectCard key={project.index} project={project} featured={index === 0} />)}</div></div></section>
 }
 
+function StoryCarousel({ images, product }) {
+  const [index, setIndex] = useState(0)
+  const [preview, setPreview] = useState(null)
+  const pausedRef = useRef(false)
+  const previewOpenRef = useRef(false)
+  const count = images.length
+  const current = images[index] || images[0]
+  const go = direction => setIndex(value => (value + direction + count) % count)
+
+  useEffect(() => {
+    if (count < 2) return undefined
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    const timer = window.setInterval(() => {
+      if (!pausedRef.current) go(1)
+    }, 4200)
+    return () => window.clearInterval(timer)
+  }, [count])
+
+  if (!current) return null
+  return (
+    <figure className="story-visual" onMouseEnter={() => { pausedRef.current = true }} onMouseLeave={() => { if (!previewOpenRef.current) pausedRef.current = false }}>
+      <button type="button" className="story-visual-frame cursor-target" onClick={() => { previewOpenRef.current = true; pausedRef.current = true; setPreview(current) }} aria-label={`放大${current.alt}`}>
+        <img src={current.thumb || current.src} alt={current.alt} loading="lazy" fetchPriority="low" decoding="async" />
+      </button>
+      <figcaption><span>{product}</span><small>{String(index + 1).padStart(2, '0')} / {String(count).padStart(2, '0')} · 点击放大</small></figcaption>
+      {count > 1 && <>
+        <button type="button" className="story-visual-nav prev" onClick={event => { event.stopPropagation(); go(-1) }} aria-label="上一张"><ArrowLeft size={16} /></button>
+        <button type="button" className="story-visual-nav next" onClick={event => { event.stopPropagation(); go(1) }} aria-label="下一张"><ArrowRight size={16} /></button>
+      </>}
+      <MediaLightbox item={preview} onClose={() => { previewOpenRef.current = false; setPreview(null); pausedRef.current = false }} />
+    </figure>
+  )
+}
+
 function StoryCard({ story }) {
   return <FadeContent className="story-row" duration={0.8} threshold={0.12}>
         <div className="story-copy">
@@ -412,7 +455,7 @@ function StoryCard({ story }) {
           <ol>{story.points.map(point => <li key={point}>{point}</li>)}</ol>
           <div className="story-metrics">{story.metrics.map(([value, label]) => <div key={label}><b>{value}</b><span>{label}</span></div>)}</div>
         </div>
-        <figure className={`story-visual ${story.imageFormat}`}><img src={story.image} alt={story.imageAlt} loading="lazy" fetchPriority="low" decoding="async" /><figcaption>{story.product}<span>PROJECT EVIDENCE / {story.index}</span></figcaption></figure>
+        <StoryCarousel images={story.images} product={story.product} />
       </FadeContent>
 }
 
@@ -432,7 +475,7 @@ function CareerIndex() {
               <strong>{experience.tags.join(' · ')}</strong>
             </div>
           </FadeContent>
-          <div className="career-role-stories">{stories.map(story => <StoryCard story={story} key={story.index} />)}</div>
+          <div className="career-role-stories">{stories.map(story => <StoryCard story={story} key={`${experience.organization}-${story.title}`} />)}</div>
         </section>
       })}
     </div>

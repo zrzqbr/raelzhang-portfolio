@@ -1,8 +1,8 @@
 # 张瑞个人作品集｜完整 AI 开发交接文档
 
 > 最后更新：2026-09-17  
-> 当前线上版本：发布中，以本次 `main` 最新提交为准。  
-> 个人站 CDN / HTTPS 已切到线上。标题层级、职位去重与高清图随本次发布上线。  
+> 当前线上版本：`bcd0ca9`（`bcd0ca9dc51eabe80d7c82d1ea7b18a429025273`）  
+> 个人站 CDN / HTTPS 已切到线上。标题层级、职位去重与高清图已随 `bcd0ca9` 上线。  
 > 本文是后续 AI 的**唯一当前态说明**。`PROJECT_HANDOFF.md` 与 `HANDOFF_NEXT.md` 记录的是较早阶段的决策，内容有部分过期，只可作为历史参考。
 
 ## 1. 项目目的与内容边界
@@ -57,12 +57,13 @@ npm run preview
 远程名称：origin
 远程地址：git@github.com:zrzqbr/raelzhang-portfolio.git
 默认分支：main
-当前提交：ab7bcdde68857dd060aeb4f5a6e041cf7db53b59
+当前提交：bcd0ca9dc51eabe80d7c82d1ea7b18a429025273
 ```
 
 关键提交记录：
 
 ```text
+bcd0ca9 Publish clearer type hierarchy and sharper gallery images.
 ab7bcdd Optimize media loading and gallery performance
 301bcff Complete portfolio and prepare production deployment
 a3880ce Add React Bits inspired motion system
@@ -153,6 +154,8 @@ GitHub：https://github.com/zrzqbr
 - 「腾讯 CSIG · AI 产品技术运营」只出现两次：首屏一次，实习经历第一段一次。项目卡不要再重复职位。
 - 桌面版心约 1700px；必须同时检查桌面和移动端。
 - 图片应按比例展示；缩略图可裁切，但 Dialog 必须显示完整高清图。
+- 首屏「项目现场速览」点击图片只放大预览，不要跳转到下方项目现场。
+- 实习经历配图是轮播，不是单张固定证据图；后续可按项目替换图片列表。
 - 所有新增交互需支持 `prefers-reduced-motion`，移动端不要依赖悬停。
 
 ## 9. 素材与性能策略（2026-09-17 已实施）
@@ -200,7 +203,7 @@ Hero 使用 /hero-horizon.webp
 | Web 服务器 | Nginx 1.26.3 |
 | 个人站发布根目录 | `/srv/raelzhang` |
 | 当前个人站软链接 | `/srv/raelzhang/current` |
-| 当前线上 release | `/srv/raelzhang/releases/ab7bcdd` |
+| 当前线上 release | `/srv/raelzhang/releases/bcd0ca9` |
 | 原峰会站根目录 | `/srv/tcarch/current`，严禁改动 |
 | Nginx 站点配置 | `/etc/nginx/conf.d/raelzhang.conf` |
 | TLS 证书 | `/etc/letsencrypt/live/raelzhang.ruitcarch.cloud/` |
