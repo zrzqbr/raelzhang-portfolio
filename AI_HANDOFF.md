@@ -1,7 +1,8 @@
 # 张瑞个人作品集｜完整 AI 开发交接文档
 
 > 最后更新：2026-09-17  
-> 当前线上版本：`ab7bcdd`（`Optimize media loading and gallery performance`）  
+> 当前线上版本：发布中，以本次 `main` 最新提交为准。  
+> 个人站 CDN / HTTPS 已切到线上。标题层级、职位去重与高清图随本次发布上线。  
 > 本文是后续 AI 的**唯一当前态说明**。`PROJECT_HANDOFF.md` 与 `HANDOFF_NEXT.md` 记录的是较早阶段的决策，内容有部分过期，只可作为历史参考。
 
 ## 1. 项目目的与内容边界
@@ -23,7 +24,13 @@
 | 本地开发 | http://localhost:5173/ | Vite 开发服务器 |
 | 原峰会站 | https://ruitcarch.cloud/ | 独立站点，**不得改动** |
 
-当前域名使用 DNSPod A 记录直连服务器，**没有启用 CDN**。这是用户当前的明确取向；若未来要启用 CDN，需要先获得用户确认，并验证缓存更新策略与 HTTPS 证书配置。
+个人站 CDN 已接入（2026-09-17）：
+
+- 加速域名 `raelzhang.ruitcarch.cloud`：腾讯云 CDN，网页小文件 / 中国境内 / 自有源 `150.158.77.134` / 回源 HOST 为该子域名 / HTTPS 回源。
+- DNSPod `raelzhang` 已改为 CNAME `raelzhang.ruitcarch.cloud.cdn.dnsv1.com`（TTL 600）。不要改回 A 记录，除非用户明确要求下线 CDN。
+- CDN HTTPS 证书：`arrGMpqA`，已部署成功，到期 2026-12-16。源站仍保留 Let's Encrypt / Certbot。
+- 已开启：HTTPS 服务、HTTP/2、强制 HTTP→HTTPS（302）。未开 QUIC。日累计流量封顶 5GB。
+- 不要改峰会站 `ruitcarch.cloud` / `www.ruitcarch.cloud` 的 CDN 或 DNS。
 
 ## 3. 本地项目位置与启动方式
 
@@ -132,7 +139,7 @@ GitHub：https://github.com/zrzqbr
 | `src/components/LightRays.*` | Hero 光线效果 |
 | `src/components/TargetCursor.*` | 自定义目标光标 |
 | `public/gallery/` | 高清原图与视频；仅用户点击预览时加载原图/视频 |
-| `public/gallery-thumbs/` | 720px 缩略图；用于照片墙与首屏轮播 |
+| `public/gallery-thumbs/` | 1440px 缩略图；用于照片墙与首屏轮播 |
 | `public/hero-horizon.webp` | 已优化的 Hero 背景图 |
 | `public/project-*-live.webp` | 精选项目与工程项目配图 |
 | `design-qa.md` | 较早阶段验收历史，不是最新部署说明 |
@@ -142,7 +149,8 @@ GitHub：https://github.com/zrzqbr
 - 风格：暗色、克制、电影感、编辑感；避免把页面改成常见 SaaS 渐变卡片模板。
 - 主色：黑色背景、暖白正文、信号红强调、少量科技蓝。
 - 无证件照，禁止未经用户同意重新加人像或头像。
-- 英文大标题应保持大字号、窄体、强层级；中文正文不要过小。
+- 标题层级：姓名 > 中文章节 > 实习职位 > 单个项目 > 正文。英文章节名只作小标注。正文可略放大，但不得超过上一层标题。
+- 「腾讯 CSIG · AI 产品技术运营」只出现两次：首屏一次，实习经历第一段一次。项目卡不要再重复职位。
 - 桌面版心约 1700px；必须同时检查桌面和移动端。
 - 图片应按比例展示；缩略图可裁切，但 Dialog 必须显示完整高清图。
 - 所有新增交互需支持 `prefers-reduced-motion`，移动端不要依赖悬停。
@@ -154,7 +162,7 @@ GitHub：https://github.com/zrzqbr
 已完成的优化：
 
 1. 图库高清图重新压缩：约 `63.4MB → 31.2MB`。
-2. 新增 `public/gallery-thumbs/`：136 张缩略图，最长边 720px，用于列表和轮播。
+2. 新增 `public/gallery-thumbs/`：缩略图用于列表和轮播。2026-09-17 已从桌面原图重出，最长边改为 **1440px**，避免 Retina 照片墙发糊。
 3. Hero 背景从 PNG 改为 WebP：约 `1.56MB → 48KB`。
 4. 首屏轮播仅优先加载前两张；其余使用 `loading="lazy"`、`decoding="async"` 与低优先级。
 5. 项目图、实习图、工程图均为延迟加载。
@@ -175,7 +183,8 @@ Hero 使用 /hero-horizon.webp
 
 - 照片墙卡片请使用 `item.thumb`，不要改回 `item.src`。
 - Dialog 图片使用 `item.src`，视频使用 `item.src` + `item.poster`。
-- 新增素材时必须同时生成对应缩略图，并更新 `src/gallery.js`。
+- 新增素材时必须同时生成对应缩略图（最长边 1440px，不要再压回 720px），并更新 `src/gallery.js`。
+- 从桌面原图重出时不要放大：原图只有 1024 就保持 1024。原图很大时全图最长边不超过 2560。
 - 不要把视频改为自动播放或首屏预加载。
 
 ## 10. 服务器与网络信息
@@ -210,8 +219,8 @@ DNSPod：
 ```text
 根域名：ruitcarch.cloud
 主机记录：raelzhang
-类型：A
-记录值：150.158.77.134
+类型：CNAME
+记录值：raelzhang.ruitcarch.cloud.cdn.dnsv1.com
 TTL：600
 备注：张瑞个人作品集
 ```
@@ -219,10 +228,8 @@ TTL：600
 证书：
 
 ```text
-证书域名：raelzhang.ruitcarch.cloud
-签发机构：Let's Encrypt
-当前证书到期：2026-12-16
-续期：Certbot 已设置自动续期任务
+边缘（CDN）：arrGMpqA，腾讯云托管，到期 2026-12-16
+源站（Nginx）：Let's Encrypt / Certbot，路径 /etc/letsencrypt/live/raelzhang.ruitcarch.cloud/，到期 2026-12-16，已设自动续期
 ```
 
 Nginx 行为：
@@ -323,7 +330,7 @@ systemctl reload nginx
 3. 用户不喜欢冗长、内部汇报式文案；作品集应让外部招聘者一眼看懂项目、角色、成果。
 4. 项目现场是已完成的 MagicBento 照片墙，不要未经要求改回多套混杂轮播。
 5. 所有公开项目链接均可能要求登录；站点只展示公开链接，不要把后台密码、管理地址或真实报名数据写入网页或仓库。
-6. 若未来用户明确要求 CDN，再单独设计：DNS 切换、回源 Host、缓存规则、证书与版本更新失效策略；不得直接套用根域名 CDN 配置。
+6. 个人站 CDN 已上线。发布新版本后如静态资源未更新，到腾讯云 CDN 刷新对应 URL；不要改峰会站 CDN。源站证书继续用 Certbot 续期，边缘证书 `arrGMpqA` 到期前在 SSL 控制台续期并重新部署到该 CDN 域名。
 
 ## 15. 交接启动清单
 

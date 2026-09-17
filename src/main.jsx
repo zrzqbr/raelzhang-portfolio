@@ -5,7 +5,6 @@ import FadeContent from './components/FadeContent'
 import FieldGallery from './components/FieldGallery'
 import GlareHover from './components/GlareHover'
 import LightRays from './components/LightRays'
-import ScrollFloat from './components/ScrollFloat'
 import TargetCursor from './components/TargetCursor'
 import './styles.css'
 
@@ -352,8 +351,8 @@ function Hero() {
           </FadeContent>
           <FadeContent className="hero-highlights" duration={0.8} delay={0.12}>
             {heroHighlights.map(item => <article className="hero-highlight" key={item.index}>
-              <p><span>{item.index}</span>{item.title}</p>
-              <h3>{item.product}</h3>
+              <h3><span>{item.index}</span>{item.title}</h3>
+              <p>{item.product}</p>
               <ul>{item.points.map(point => <li key={point}>{point}</li>)}</ul>
             </article>)}
           </FadeContent>
@@ -369,8 +368,8 @@ function Hero() {
 function SectionHeading({ index, title, subtitle }) {
   return (
     <div className="section-heading">
-      <p><span>{index}</span>{subtitle}</p>
-      <ScrollFloat containerClassName="section-display" textClassName="section-display-text" animationDuration={0.8} ease="power2.out" scrollStart="top bottom" scrollEnd="center center" stagger={0.018}>{title}</ScrollFloat>
+      <p><span>{index}</span>{title}</p>
+      <h2>{subtitle}</h2>
     </div>
   )
 }
@@ -406,7 +405,7 @@ function Work() {
 function StoryCard({ story }) {
   return <FadeContent className="story-row" duration={0.8} threshold={0.12}>
         <div className="story-copy">
-          <div className="story-kicker"><span>项目 {story.index}</span><p>{story.company}<small>{story.period}</small></p></div>
+          <div className="story-kicker"><span>项目 {story.index}</span><small>{story.period}</small></div>
           <strong className="story-product">{story.product}</strong>
           <h3>{story.title}</h3>
           <p className="story-summary">{story.summary}</p>
@@ -427,7 +426,11 @@ function CareerIndex() {
         return <section className="career-role-block" key={experience.index}>
           <FadeContent className="career-role" duration={0.7} threshold={0.12}>
             <div className="career-role-meta"><span>{roleIndex === 0 ? '当前实习' : '过往实习'}</span><b>{experience.period}</b></div>
-            <div><p>{experience.organization}</p><h3>{experience.role}</h3><strong>{experience.tags.join(' · ')}</strong></div>
+            <div>
+              <h3>{experience.organization} · {experience.role}</h3>
+              <p className="career-role-summary">{experience.summary}</p>
+              <strong>{experience.tags.join(' · ')}</strong>
+            </div>
           </FadeContent>
           <div className="career-role-stories">{stories.map(story => <StoryCard story={story} key={story.index} />)}</div>
         </section>
