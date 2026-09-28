@@ -103,7 +103,7 @@ const experiences = [
     organization: '腾讯 CSIG',
     role: 'AI 产品技术运营',
     type: 'INTERNSHIP / AI PRODUCT GROWTH',
-    summary: '围绕 WorkBuddy、QClaw 等 AI 产品，负责区域拓展、客户技术赋能、内容增长及企业技术圈层运营，推动产品从用户体验走向企业采购与规模化应用。',
+    summary: '围绕 WorkBuddy、QClaw 等 AI 产品，参与区域拓展、客户技术赋能、用户增长与企业技术圈层运营，推动产品从触达到试用，再到采购和持续使用。',
     tags: ['区域增长', '客户技术赋能', '企业专家圈层', '内容与直播'],
     results: [
       ['10 城 · 1.1万+', '区域用户覆盖'],
@@ -119,7 +119,7 @@ const experiences = [
     organization: '腾讯云',
     role: '数据库产品运营',
     type: 'INTERNSHIP / DEVELOPER ECOSYSTEM',
-    summary: '围绕 TDSQL 与 OpenTenBase，负责技术内容建设、开发者增长、企业客户 PoC 验证及国产数据库产品准入支持。',
+    summary: '围绕 TDSQL 与 OpenTenBase，参与开发者增长、企业客户 PoC 验证及国产数据库产品准入工作。',
     tags: ['OpenTenBase', '开发者增长', 'PoC 验证', '国测申报'],
     results: [
       ['3 个月', 'GitHub Star +450'],
@@ -170,9 +170,9 @@ const internshipStories = [
     company: '腾讯 CSIG · AI产品技术运营',
     period: '2026.03—至今',
     product: 'WorkBuddy',
-    title: 'WorkBuddy 区域增长与商业转化',
-    summary: '以腾讯龙虾区域增长专项为获客入口，负责城市项目交付、客户线索沉淀及企业采购转化。',
-    points: ['策划并交付10场WorkBuddy产品体验活动，覆盖全国10城、1.1万+用户，推动9K+用户下载或深度体验', '在杭州等城市独立担任项目PM，协同腾讯云合作伙伴完成客户触达、产品演示和项目交付，沉淀500+政企采购线索，潜在采购意向规模达5亿元', '协同直销、KA及渠道团队推进需求确认、产品试用和商务跟进，支撑单笔50万元企业订单交付，并推动全国首个WorkBuddy OPC社区成立'],
+    title: '区域获客与商业转化',
+    summary: '将10城产品体验活动转化为企业线索，并协同销售推进采购。',
+    points: ['策划并交付10场WorkBuddy产品体验活动，覆盖1.1万+用户，推动9K+用户下载或深度体验。', '在杭州等城市独立担任项目PM，协同腾讯云合作伙伴完成客户触达、产品演示与现场交付，沉淀500+政企采购线索。', '协同直销、KA及渠道团队推进需求确认、试用和商务跟进，支撑单笔50万元企业订单交付，并推动全国首个WorkBuddy OPC社区成立。'],
     metrics: [['9K+', '下载或深度体验'], ['500+', '政企采购线索'], ['50万元', '企业订单']],
     images: shots('tencent-growth', ['09.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp'], '腾讯龙虾区域增长专项活动现场'),
   },
@@ -181,9 +181,10 @@ const internshipStories = [
     company: '腾讯 CSIG · AI产品技术运营',
     period: '2026',
     product: 'WorkBuddy / QClaw',
-    title: '客户技术赋能与产品验证',
-    summary: '围绕客户从产品认知、场景验证到采购决策的关键节点，通过技术培训、行业分享和Agent场景建设推动产品落地。',
-    points: ['担任华东师范研究院OPC训练营WorkBuddy技术讲师，通过产品讲解、场景配置和实操演示，推动培训需求转化为10万元企业采购订单', '受邀参加GOPS全球运维大会等行业活动，围绕QClaw、WorkBuddy及Agent应用场景开展技术分享，带动200+企业用户下载试用', '针对内容创作、视频剪辑和资料管理等需求，上线6项Agent专家模式，累计调用100万+次；结合用户反馈推动WorkBuddy“资料库”等功能迭代'],
+    title: '技术客户赋能与产品迭代',
+    summary: '通过技术讲解推动客户试用和采购，再将真实需求带回产品。',
+    pointLabels: ['技术客户赋能', '技术客户赋能', '产品场景迭代'],
+    points: ['担任华东师范研究院OPC训练营WorkBuddy技术讲师，通过场景配置与实操演示，推动培训需求转化为10万元企业采购订单。', '受邀在GOPS全球运维大会等行业活动分享QClaw、WorkBuddy及Agent应用场景，带动200+企业用户下载试用。', '根据内容创作、视频剪辑和资料管理等需求，上线6项Agent专家模式，累计调用100万+次；结合用户反馈推动WorkBuddy“资料库”等功能迭代。'],
     metrics: [['10万元', '培训转化采购'], ['200+', '下载试用'], ['100万+', 'Agent累计调用']],
     images: [
       ...shots('instructor', ['04.webp', '01.webp'], '技术分享与客户赋能现场'),
@@ -195,9 +196,9 @@ const internshipStories = [
     company: '腾讯 CSIG · AI产品技术运营',
     period: '2026',
     product: 'WorkBuddy / 腾讯云AI社区',
-    title: '内容矩阵与用户增长',
-    summary: '围绕产品功能、应用场景和客户案例，建设公众号、腾讯频道及官方直播协同的内容增长体系。',
-    points: ['负责腾讯云AI社区公众号选题策划和内容运营，围绕产品功能、实操教程及客户案例产出30+篇内容，两个月内推动公众号关注量由5千增长至1.4万', '从0搭建WorkBuddy腾讯频道，持续沉淀产品教程、功能解读和场景案例，推动频道成员增长至3千+，形成可持续触达用户的官方内容阵地', '兼任WorkBuddy官方技术主播，完成5场产品直播，通过功能演示、场景拆解和实时答疑帮助用户理解产品价值，场均观看5.6万+，累计新增粉丝2万+'],
+    title: '内容运营与用户增长',
+    summary: '用文章、频道和直播持续解释产品价值，扩大用户触达。',
+    points: ['运营腾讯云AI社区公众号，产出30+篇产品教程与客户案例，两个月内推动关注量由5千增长至1.4万。', '从0搭建WorkBuddy腾讯频道，沉淀功能解读和应用案例，推动频道成员增长至5千+。', '担任WorkBuddy官方技术主播，完成5场产品直播，场均观看5.6万+，累计新增粉丝2万+。'],
     metrics: [['5.6万+', '直播场均观看'], ['2万+', '直播累计增粉'], ['30+篇', 'AI产品文章']],
     images: shots('tencent-growth', ['01.webp', '07.webp', '08.webp', '10.webp', '11.webp'], '腾讯云AI内容传播与活动现场'),
   },
@@ -207,8 +208,8 @@ const internshipStories = [
     period: '2026',
     product: '腾讯云TVP / 腾讯云架构师技术同盟',
     title: '企业技术决策圈层运营',
-    summary: '面向企业架构师和技术决策者，建立从技术活动、私域连接到成员沉淀和客户经营的圈层运营链路。',
-    points: ['策划并落地18场技术沙龙、峰会及行业交流活动，通过线上私域连接深圳、成都、长沙等地区1000+名企业架构师和技术决策者，推动100+人进入核心技术圈层', '协同FDE、产品、研发及行业专家策划10场技术议题，将产品能力、行业趋势和企业实践转化为面向技术决策者的专业内容，持续强化用户关系与品牌影响力', '搭建峰会报名门户与专家运营后台，打通渠道归因、成员建档、签到核销和复盘分析，形成企业技术活动全流程数字化运营能力；累计沉淀1700+用户报名及参会数据，报名规模较过往同类活动提升35%，为销售侧客户分层和持续经营提供数据支撑'],
+    summary: '通过技术活动和线上系统沉淀企业技术客户，支持后续分层经营。',
+    points: ['策划并落地18场技术沙龙、峰会及行业交流活动，连接1000+名企业架构师和技术决策者，推动100+人进入核心技术圈层。', '协同FDE、产品、研发及行业专家策划10场技术议题，让产品能力与企业实践成为持续交流的内容。', '搭建峰会报名门户与专家运营后台，统一管理渠道来源、成员档案、签到及活动数据；沉淀1700+用户报名及参会数据，报名规模较过往同类活动提升35%，支持销售侧分层跟进。'],
     metrics: [['18场', '线下技术活动'], ['1,000+', '技术决策者'], ['1,700+', '活动报名']],
     images: [
       ...shots('summit-salon', ['01.webp', '02.webp'], '腾讯云架构师技术圈层活动现场'),
@@ -220,9 +221,9 @@ const internshipStories = [
     company: '腾讯云 · 数据库产品运营',
     period: '2025.07—2025.12',
     product: 'OpenTenBase / TDSQL',
-    title: '技术内容与开发者增长',
-    summary: '针对数据库产品理解门槛高、部署资料分散的问题，建设开发者内容和自助检索体系。',
-    points: ['策划版本解读、部署教程、客户案例和兼容适配内容，搭建技术专区及RAG知识库，为开发者和销售、售前提供可复用资料', '联合高校教师共建数据库教材，拓展校园开发者触达渠道；三个月内推动GitHub Star增长450+、教程阅读量达到10万+', '从社区及内容反馈中沉淀20项产品建议，推动优化30+份技术文档，为产品迭代和客户沟通提供支持'],
+    title: '开发者增长与技术内容建设',
+    summary: '降低产品学习和部署门槛，为开发者及销售、售前沉淀可复用资料。',
+    points: ['策划版本解读、部署教程与客户案例，搭建技术专区及RAG知识库，支持开发者自助检索和销售、售前复用。', '联合高校教师共建数据库教材；三个月内推动GitHub Star增长450+、教程阅读量达到10万+。', '从社区反馈中沉淀20项产品建议，推动优化30+份技术文档，支持产品迭代与客户沟通。'],
     metrics: [['+450', '3个月GitHub Star'], ['10万+', '教程阅读量'], ['30+份', '技术文档优化']],
     images: shots('instructor', ['02.webp', '07.webp', '08.webp'], 'OpenTenBase开发者活动现场'),
   },
@@ -231,9 +232,9 @@ const internshipStories = [
     company: '腾讯云 · 数据库产品运营',
     period: '2025.07—2025.12',
     product: 'OpenTenBase / TDSQL',
-    title: '客户PoC与项目推进',
-    summary: '通过技术活动获取企业线索，并结合客户业务场景协同研发推进产品验证和部署。',
-    points: ['依托开放原子大会、城市行及年度峰会等10+场活动，触达1000+名开发者和企业用户，完成线索收集、需求识别及分层跟进', '协同研发完成源码编译、多节点集群部署、兼容适配和性能压测，将客户需求转化为可验证的PoC方案', '对接四川银行国产数据库替代需求，参与技术验证、适配评估和方案沟通，推动产品由试用验证进入项目落地阶段'],
+    title: '企业 PoC 与产品准入',
+    summary: '将企业需求落实为技术验证方案，并支持产品进入政企采购流程。',
+    points: ['通过10+场技术活动触达1000+名开发者和企业用户，完成线索收集、需求识别及分层跟进。', '协同研发开展源码编译、多节点部署、兼容适配与性能压测；参与四川银行国产数据库替代需求的技术验证和方案沟通。', '参与国产数据库安全可靠测评申报，梳理功能、性能、安全及兼容适配材料，推进文档校验与评审闭环。'],
     metrics: [['10+场', '技术活动'], ['1,000+', '用户触达'], ['企业级', 'PoC验证']],
     images: shots('instructor', ['03.webp', '05.webp', '06.webp'], 'OpenTenBase客户技术验证与项目交流'),
   },
@@ -448,12 +449,11 @@ function StoryCarousel({ images, product }) {
 function StoryCard({ story }) {
   return <FadeContent className="story-row" duration={0.8} threshold={0.12}>
         <div className="story-copy">
-          <div className="story-kicker"><span>项目 {story.index}</span><small>{story.period}</small></div>
+          <div className="story-kicker"><span>方向 {story.index}</span><small>{story.period}</small></div>
           <strong className="story-product">{story.product}</strong>
           <h3>{story.title}</h3>
           <p className="story-summary">{story.summary}</p>
-          <ol>{story.points.map(point => <li key={point}>{point}</li>)}</ol>
-          <div className="story-metrics">{story.metrics.map(([value, label]) => <div key={label}><b>{value}</b><span>{label}</span></div>)}</div>
+          <ol>{story.points.map((point, index) => <li key={point}>{story.pointLabels?.[index] && (index === 0 || story.pointLabels[index] !== story.pointLabels[index - 1]) && <span className="story-point-label">{story.pointLabels[index]}</span>}{point}</li>)}</ol>
         </div>
         <StoryCarousel images={story.images} product={story.product} />
       </FadeContent>

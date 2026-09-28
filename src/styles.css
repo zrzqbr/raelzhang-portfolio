@@ -182,10 +182,11 @@ a:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
 .story-kicker small { color: #7b827f; font: 500 13px/1 'Barlow Condensed', sans-serif; letter-spacing: .08em; }
 .story-product { margin-top: 20px; color: var(--red); font-size: 15px; font-weight: 600; }
 .story-copy h3 { margin: 8px 0 0; max-width: 610px; font-size: clamp(20px, 1.7vw, 26px); line-height: 1.28; letter-spacing: -.025em; }
-.story-summary { margin: 16px 0 0; max-width: 680px; color: #a6aaa8; font-size: 17px; line-height: 1.75; }
+.story-summary { margin: 16px 0 0; max-width: 680px; color: #e3e5df; font-size: 18px; font-weight: 600; line-height: 1.65; }
 .story-copy ol { margin: 16px 0 0; padding: 0; list-style: none; counter-reset: story-point; }
 .story-copy li { position: relative; padding: 8px 0 8px 38px; color: #c0c3bf; font-size: 16px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,.08); counter-increment: story-point; }
 .story-copy li::before { content: '0' counter(story-point); position: absolute; left: 0; top: 13px; color: var(--red); font: 600 11px/1 'Barlow Condensed', sans-serif; }
+.story-point-label { display: block; margin: 3px 0 6px; color: var(--red); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
 .story-metrics { margin-top: 22px; padding-top: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
 .story-metrics > div { min-width: 0; padding: 0 18px; border-left: 1px solid var(--line); }
 .story-metrics > div:first-child { padding-left: 0; border-left: 0; }
