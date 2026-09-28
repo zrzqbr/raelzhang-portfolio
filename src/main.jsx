@@ -522,7 +522,7 @@ function Contact() {
     <div className="contact-list">
       <a className="cursor-target" href="mailto:2256178941@qq.com"><EnvelopeSimple size={21} weight="light" /><span><small>邮箱</small>2256178941@qq.com</span></a>
       <a className="cursor-target" href="tel:+8618609366869"><Phone size={21} weight="light" /><span><small>电话</small>186 0936 6869</span></a>
-      <div><ChatCircleDots size={21} weight="light" /><span><small>微信</small>请通过邮箱或电话获取</span></div>
+      <div><ChatCircleDots size={21} weight="light" /><span><small>微信</small>18609366869</span></div>
       <a className="cursor-target" href="https://github.com/zrzqbr" target="_blank" rel="noreferrer"><GithubLogo size={21} weight="light" /><span><small>GitHub</small>github.com/zrzqbr</span></a>
     </div>
   </div></footer>
