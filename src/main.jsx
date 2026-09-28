@@ -20,13 +20,13 @@ const projects = [
   {
     index: '01',
     title: '腾讯 OPC 社区官方平台',
-    meta: '产品负责人 / 核心开发者 · 2026',
-    copy: '从业务需求、角色与激励机制出发，搭建园区榜单、OPC 价值榜、专家咨询与积分体系，让社区服务从人工协同走向产品化运营。',
+    meta: '产品负责人 · 2026',
+    copy: '负责腾讯 OPC 社区官方平台的需求梳理与产品设计，协同研发完成上线。平台连接园区、创业者、企业需求方与专家，承接线下活动沉淀的资源对接和采购需求，支持后续社区运营。',
     image: '/project-opc-live.webp',
     tag: 'COMMUNITY / PRODUCT',
     href: 'https://cloud.tencent.com/opc',
     domain: 'cloud.tencent.com/opc',
-    stats: [['3 类', '核心角色'], ['4 大', '产品模块'], ['10 城', '线上线下联动']],
+    stats: [['4 类', '核心角色'], ['4 大', '产品模块'], ['10 城', '线上线下联动']],
   },
   {
     index: '02',
